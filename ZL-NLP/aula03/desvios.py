@@ -1,0 +1,11 @@
+print("A")
+print("B")
+print("C")
+print("D")
+if 6 > 5:
+    print("E")
+    print("F")
+    print("G")
+print("H")
+print("I")
+print("J")
