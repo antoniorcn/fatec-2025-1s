@@ -1,0 +1,24 @@
+1) 
+Criar dependência de agregação entre as classes 
+    Livro ( titulo, ano, autor, publicadora ) com a classe 
+Autor (nome completo, nascimento, formação)
+
+Crie um construtor na classe Livro e outro na classe Autor
+de maneira que ao instanciar um Livro, o autor seja 
+criado automaticamente
+
+Faça uma classe de Teste que instancie dois livros 
+e coloque as informações deles na console.
+
+2)
+Criar dependência de agregação entre as classes 
+    Pedido ( opcao do menu, tamanho, quantidade ) 
+com a classe OpcaoMenu (nome da opcao, 
+preco, calorias)
+
+Crie um construtor na classe Pedido e outro na classe
+OpcaoMenu de maneira que ao instanciar um Pedido,
+a opcaoMenu seja criado automaticamente
+
+Faça uma classe de Teste que instancie dois Pedidos 
+e coloque as informações deles na console.
