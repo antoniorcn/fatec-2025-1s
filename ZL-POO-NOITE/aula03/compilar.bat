@@ -1,5 +1,5 @@
-rmdir ./build /S /Q
+rmdir ".\build" /S /Q
 mkdir build
 
-javac -d ./build edu/curso/*.javac
-java -cp .;./build edu.curso.GaragemTeste
+javac -d .\build .\src\edu\curso\*.java
+java -cp .;.\build edu.curso.GaragemTeste
