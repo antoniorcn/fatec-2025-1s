@@ -1,0 +1,17 @@
+POST http://localhost:8080/pedido HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "id" : 0,
+    "descricao": "Solicita 10 esfihas",
+    "data": "2025-02-28T17:52:00",
+    "dataEntrega": "2025-02-28T19:52:00",
+    "status": "SOLICITADO",
+    "contatoId": 2
+}
+
+
+###
+
+GET http://localhost:8080/pedido HTTP/1.1
+

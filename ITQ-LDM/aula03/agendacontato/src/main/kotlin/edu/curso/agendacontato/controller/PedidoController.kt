@@ -1,13 +1,18 @@
 package edu.curso.agendacontato.controller
 
+import edu.curso.agendacontato.mapper.PedidoMapper
 import edu.curso.agendacontato.model.Pedido
+import edu.curso.agendacontato.model.PedidoDTO
 import edu.curso.agendacontato.service.PedidoService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
-class PedidoController(@Autowired val service : PedidoService){
+@RestController
+@RequestMapping("/pedido")
+class PedidoController(@Autowired val service : PedidoService,
+    @Autowired val mapper : PedidoMapper){
 
     @GetMapping
     fun listarTodos() : ResponseEntity<List<Pedido>> {
@@ -15,9 +20,14 @@ class PedidoController(@Autowired val service : PedidoService){
     }
 
     @PostMapping
-    fun criar(@RequestBody pedido : Pedido) : ResponseEntity<String> {
-        service.cadastrar( pedido )
-        return ResponseEntity("Pedido criado com sucesso", HttpStatus.CREATED)
+    fun criar(@RequestBody pedidoDTO : PedidoDTO) : ResponseEntity<String> {
+        val pedido = mapper.fromDTO( pedidoDTO )
+        return if (pedido != null) {
+            service.cadastrar( pedido )
+            ResponseEntity("Pedido criado com sucesso", HttpStatus.CREATED)
+        } else {
+            ResponseEntity("Erro ao criar o pedido", HttpStatus.NOT_FOUND)
+        }
     }
 
     @DeleteMapping("/{id}")

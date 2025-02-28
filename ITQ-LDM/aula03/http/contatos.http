@@ -44,7 +44,7 @@ GET http://localhost:8080/contato HTTP/1.1
 ###
 
 # PathVariable 
-DELETE http://localhost:8080/contato/0 HTTP/1.1
+DELETE http://localhost:8080/contato/3 HTTP/1.1
 
 
 ###
@@ -54,7 +54,7 @@ DELETE http://localhost:8080/contato?id=2 HTTP/1.1
 
 ###
 
-PUT http://localhost:8080/contato/2 HTTP/1.1
+PUT http://localhost:8080/contato/0 HTTP/1.1
 Content-Type: application/json
 
 { 

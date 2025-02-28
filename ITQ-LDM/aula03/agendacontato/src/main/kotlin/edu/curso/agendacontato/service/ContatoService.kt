@@ -44,4 +44,14 @@ class ContatoService {
         }
         return encontrado;
     }
+
+    fun findById(id : Long) : Contato? {
+        for (i in 0..< listaContatos.size) {
+            val contato = listaContatos[i]
+            if (contato.id == id) {
+                return contato
+            }
+        }
+        return null
+    }
 }
