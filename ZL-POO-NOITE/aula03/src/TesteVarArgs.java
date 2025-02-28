@@ -1,3 +1,4 @@
+package src;
 public class TesteVarArgs { 
     public static double somar ( double m, 
                                 double ... numeros ) {

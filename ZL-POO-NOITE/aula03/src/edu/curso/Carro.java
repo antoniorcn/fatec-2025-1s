@@ -1,4 +1,4 @@
-package edu.curso;
+package src.edu.curso;
 
 public class Carro { 
 
