@@ -13,10 +13,17 @@ public class Porteiro {
         this.hora = hora;
     }
 
+    public boolean equals(Porteiro outro) { 
+        return numero.equals(outro.numero) && nome.equals(outro.nome);
+    }
+
     public static Porteiro getInstancia() { 
-        if (instancia == null) { 
+       /* if (instancia == null) { 
             instancia = new Porteiro("222", "Maria", 9);
-        }
+        } 
         return instancia;
+        */ 
+        
+        return new Porteiro("222", "Maria", 9);
     }
 }
