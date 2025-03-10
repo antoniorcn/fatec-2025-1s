@@ -1,0 +1,10 @@
+00123Antonio Silva                                      89.5 
+00456Bruna Souza                                        74.3 
+00789Carlos Oliveira                                    91.8 
+01012Daniela Costa                                      85.7 
+01345Eduardo Lima                                       78.2 
+01678Fernanda Pereira                                   82.9 
+01901Gabriela Mendes                                    88.4 
+02234Hugo Almeida                                       93.1 
+02567Isabela Barbosa                                    77.6 
+02890João Santos                                        80.5
