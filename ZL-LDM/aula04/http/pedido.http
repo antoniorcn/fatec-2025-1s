@@ -1,0 +1,49 @@
+
+GET http://localhost:8080/pedido HTTP/1.1
+Accept: application/json
+
+
+###
+
+POST http://localhost:8080/pedido HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "descricao": "Salada Grega para entrega na Fatec ZL",
+    "dataPedido": "2025-03-12T07:29:00.000",
+    "dataEntrega": "2025-03-12T09:29:00.000",
+    "status": "ENTREGUE",
+    "contatoId": 3
+}
+
+###
+
+POST http://localhost:8080/pedido HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "descricao": "X burguer para entrega na Fatec ZL",
+    "dataPedido": "2025-03-12T07:29:00.000",
+    "dataEntrega": "2025-03-12T09:29:00.000",
+    "status": "ENTREGUE",
+    "contatoId": 1
+}
+
+
+###
+
+
+POST http://localhost:8080/pedido HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "descricao": "Sobremesa para entrega na Fatec ZL",
+    "dataPedido": "2025-03-12T07:29:00.000",
+    "dataEntrega": "2025-03-12T09:29:00.000",
+    "status": "ENTREGUE"
+}
+
+
+###
+
+DELETE http://localhost:8080/pedido/2 HTTP/1.1

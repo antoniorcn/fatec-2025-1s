@@ -1,27 +1,18 @@
 package edu.curso.agendacontato.service
 
+import edu.curso.agendacontato.model.Pedido
 import org.springframework.stereotype.Service
-import edu.curso.agendacontato.model.Contato
 
 @Service
-class ContatoService { 
-    val lista = mutableListOf<Contato> ()
+class PedidoService {
+    val lista = mutableListOf<Pedido> ()
 
     var contador : Long = 0
 
-    fun adicionar( contato : Contato ) { 
+    fun adicionar( pedido : Pedido ) {
         contador++  // contador = contador + 1        contador += 1
-        contato.id = contador
-        lista.add( contato )
-    }
-
-    fun procurarPorId( id : Long ) : Contato? {
-        for (contato in lista) {
-            if (id == contato.id) {
-                return contato
-            }
-        }
-        return null
+        pedido.id = contador
+        lista.add( pedido )
     }
 
     fun apagar( id : Long ) : Boolean { 
@@ -35,7 +26,7 @@ class ContatoService {
         return encontrado
     }
 
-    fun listarTodos() : List<Contato> { 
+    fun listarTodos() : List<Pedido> {
         return lista
     }
 
