@@ -9,6 +9,7 @@ public class Carro extends Automovel {
     private Motor motor = new Motor();
 
     public Carro(String fabricante, String modelo) { 
+        super("Etanol");
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.roda = new Roda();
