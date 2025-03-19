@@ -4,6 +4,7 @@ import edu.curso.agendacontato.mapper.PedidoMapper
 import edu.curso.agendacontato.model.PedidoDTO
 import edu.curso.agendacontato.model.PedidoDTOView
 import edu.curso.agendacontato.service.PedidoService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -23,7 +24,7 @@ class PedidoController(val pedidoService : PedidoService,
     }
 
     @PostMapping
-    fun criarPedido( @RequestBody pedidoDTO : PedidoDTO) : ResponseEntity<String> {
+    fun criarPedido( @RequestBody @Valid pedidoDTO : PedidoDTO) : ResponseEntity<String> {
         val pedido = pedidoMapper.fromDTO(pedidoDTO)
         if (pedido != null) {
             pedidoService.adicionar(pedido)

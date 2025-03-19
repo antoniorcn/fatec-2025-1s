@@ -24,9 +24,15 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 
+	// Dependência para Bean Validation
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
 	// Dependências do JPA e driver do banco de dados
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+
+	// Dependência do Swagger
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.5")
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

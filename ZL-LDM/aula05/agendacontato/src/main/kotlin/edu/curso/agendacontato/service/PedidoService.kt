@@ -1,33 +1,33 @@
 package edu.curso.agendacontato.service
 
 import edu.curso.agendacontato.model.Pedido
+import edu.curso.agendacontato.repository.PedidoRepository
 import org.springframework.stereotype.Service
 
 @Service
-class PedidoService {
-    val lista = mutableListOf<Pedido> ()
-
-    var contador : Long = 0
+class PedidoService( val pedidoRepository: PedidoRepository ) {
 
     fun adicionar( pedido : Pedido ) {
-        contador++  // contador = contador + 1        contador += 1
-        pedido.id = contador
-        lista.add( pedido )
+        pedidoRepository.save( pedido )
     }
 
-    fun apagar( id : Long ) : Boolean { 
-        println("Lista size: ${lista.size}")
-        val novaLista = lista.filter { it -> return@filter it.id != id }
-        val encontrado = novaLista.size != lista.size
-        if (encontrado){ 
-            lista.clear()
-            lista.addAll( novaLista )
+    fun procurarPorId( id : Long ) : Pedido? {
+        val pedidoOptional = pedidoRepository.findById( id )
+        return pedidoOptional.orElse( null )
+    }
+
+    fun apagar( id : Long ) : Boolean {
+        val pedido = procurarPorId( id )
+        return if (pedido != null) {
+            pedidoRepository.delete(pedido)
+            true
+        } else {
+            false
         }
-        return encontrado
     }
 
     fun listarTodos() : List<Pedido> {
-        return lista
+        return pedidoRepository.findAll()
     }
 
 }
