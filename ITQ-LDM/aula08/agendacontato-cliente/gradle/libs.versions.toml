@@ -17,6 +17,7 @@ kotlin = "2.1.0"
 kotlinx-coroutines = "1.10.1"
 foundationLayoutAndroid = "1.7.8"
 ktor = "3.1.1"
+navigation = "2.8.0-alpha10"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -33,7 +34,7 @@ androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", nam
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 androidx-foundation-layout-android = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "foundationLayoutAndroid" }
-
+androidx-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation"}
 
 ktor-client-android = { group = "io.ktor", name="ktor-client-android", version.ref = "ktor"}
 ktor-client-core = { group = "io.ktor", name="ktor-client-core", version.ref = "ktor"}

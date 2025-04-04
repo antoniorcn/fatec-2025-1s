@@ -12,6 +12,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Scaffold
@@ -21,6 +23,9 @@ import androidx.compose.runtime.Composable
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.List
+import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.runtime.MutableLongState
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableLongStateOf
@@ -31,6 +36,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -48,13 +57,11 @@ val lista : MutableState<List<Contato>> = mutableStateOf(listOf())
 
 val ciano = Color(0x77DDFFFF )
 
-// val status = mutableStateOf<String?>(null)
 val snackBar = mutableStateOf( SnackbarHostState() )
 
 
 fun navegar(direcao : String) {
     tela.value = direcao
-    // status.value = null
 }
 
 @Composable
@@ -64,11 +71,32 @@ fun App() {
         val httpCliente = createHttpClient()
         val api = ContatoAPI(httpCliente)
         val escopo = rememberCoroutineScope()
+        val navController = rememberNavController()
         lerTodosContatos(api, escopo )
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Agenda de Contato") }
+                    title = { Text("Agenda de Contato") },
+                    actions = {
+                        IconButton(
+                            onClick = {
+                                navController.popBackStack()
+                                navController.navigate("FORM")
+                            }
+                        ) {
+                            Icon( Icons.Rounded.Edit,
+                                    contentDescription = "Formulario" )
+                        }
+                        IconButton(
+                            onClick = {
+                                navController.popBackStack()
+                                navController.navigate("LISTA")
+                            }
+                        ) {
+                            Icon( Icons.AutoMirrored.Rounded.List,
+                                contentDescription = "Listagem")
+                        }
+                    }
                 )
             },
             snackbarHost = {
@@ -81,13 +109,21 @@ fun App() {
                     .padding(internalPadding),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
-
-                if (tela.value == "FORM") {
-                    FormularioContato(api, escopo)
-                } else {
-                    ListaContato(api, escopo)
-                }
+                AppNavHost(navController, api, escopo )
             }
+        }
+    }
+}
+
+@Composable
+fun AppNavHost( navController : NavHostController,
+                api : ContatoAPI, escopo : CoroutineScope ) {
+    NavHost( navController = navController, startDestination = "FORM" ) {
+        composable("FORM") {
+            FormularioContato(api, escopo)
+        }
+        composable("LISTA") {
+            ListaContato(api, escopo)
         }
     }
 }
@@ -95,10 +131,8 @@ fun App() {
 fun cadastrarContato( api: ContatoAPI, escopo : CoroutineScope) {
     escopo.launch {
         api.cadastrar(Contato(0, nome.value, email.value, telefone.value))
-        // status.value = "Contato gravado com sucesso"
-        escopo.launch {
-            snackBar.value.showSnackbar("Contato gravado com sucesso")
-        }
+        snackBar.value.showSnackbar("Contato gravado com sucesso")
+
         lista.value = api.lerTodos()
         nome.value = ""
         telefone.value = ""
@@ -109,20 +143,16 @@ fun cadastrarContato( api: ContatoAPI, escopo : CoroutineScope) {
 fun lerTodosContatos( api : ContatoAPI, escopo: CoroutineScope) {
     escopo.launch {
         lista.value = api.lerTodos()
-        // status.value = "Contatos lidos com sucesso"
-        escopo.launch {
-            snackBar.value.showSnackbar("Foram lidos ${lista.value.size} contatos")
-        }
+        snackBar.value.showSnackbar("Foram lidos ${lista.value.size} contatos")
     }
 }
 
 fun apagarContato( api: ContatoAPI, escopo : CoroutineScope, contato : Contato) {
     escopo.launch {
         api.apagar(contato)
-        // status.value = "Contato apagado com sucesso"
-        escopo.launch {
-            snackBar.value.showSnackbar("Contato apagado com sucesso")
-        }
+
+        snackBar.value.showSnackbar("Contato apagado com sucesso")
+
         lista.value = api.lerTodos()
     }
 }
