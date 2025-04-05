@@ -1,4 +1,4 @@
-package edu.curso.agendacontato
+package edu.curso.agendacontato.data
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

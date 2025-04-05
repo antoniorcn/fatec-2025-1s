@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/contato")
+@CrossOrigin
 class ContatoController( val contatoService : ContatoService ) {
 
     @GetMapping

@@ -1,5 +1,6 @@
-package edu.curso.agendacontato
+package edu.curso.agendacontato.data
 
+import edu.curso.agendacontato.domain.Contato
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.delete
@@ -9,9 +10,9 @@ import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 
-class ContatoAPI( val httpClient : HttpClient ) {
+class ContatoAPI( private val httpClient : HttpClient ) {
     private val URL_BASE = "http://localhost:8090"
-    suspend fun cadastrar( contato : Contato ) {
+    suspend fun cadastrar( contato : Contato) {
         httpClient.post("$URL_BASE/contato") {
             contentType(ContentType.Application.Json)
             setBody(contato)

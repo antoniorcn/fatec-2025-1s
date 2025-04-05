@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/pedido")
+@CrossOrigin
 class PedidoController(val pedidoService : PedidoService,
     val pedidoMapper : PedidoMapper
 ) {
