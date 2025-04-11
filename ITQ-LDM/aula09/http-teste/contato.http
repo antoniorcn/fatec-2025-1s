@@ -1,0 +1,26 @@
+GET http://localhost:8090/contato HTTP/1.1
+Authorization: Basic am9hbzpBQkMxMjM=
+
+
+###
+
+POST http://localhost:8090/contato HTTP/1.1
+Authorization: Basic am9hbzpBQkMxMjM=
+Content-Type: application/json
+
+{ 
+    "nome": "Teste", 
+    "email": "teste@teste.com",
+    "telefone": "(11) 1010-1010" 
+}
+
+
+### Authenticação como Joao
+
+DELETE http://localhost:8090/contato/152 HTTP/1.1
+Authorization: Basic am9hbzpBQkMxMjM=
+
+
+### Authenticação como Maria
+DELETE http://localhost:8090/contato/152 HTTP/1.1
+Authorization: Basic bWFyaWE6MTIzNA==

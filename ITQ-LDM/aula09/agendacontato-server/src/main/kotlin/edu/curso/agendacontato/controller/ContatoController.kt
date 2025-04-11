@@ -5,6 +5,7 @@ import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -23,6 +24,7 @@ class ContatoController( val service : ContatoService  ){
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_MANAGER') or hasRole('ROLE_TEACHER')")
     fun removerContato(@PathVariable("id") id : Long) : ResponseEntity<String> {
         return if (!service.apagar(id)) {
             ResponseEntity("ID não encontrado", HttpStatus.NOT_FOUND)
@@ -32,6 +34,7 @@ class ContatoController( val service : ContatoService  ){
     }
 
     @DeleteMapping
+    @PreAuthorize("hasRole('ROLE_MANAGER') or hasRole('ROLE_TEACHER')")
     fun removerContatoParam(@RequestParam("id") id : Long) : ResponseEntity<String> {
         return if (!service.apagar(id)) {
             ResponseEntity("ID não encontrado", HttpStatus.NOT_FOUND)
