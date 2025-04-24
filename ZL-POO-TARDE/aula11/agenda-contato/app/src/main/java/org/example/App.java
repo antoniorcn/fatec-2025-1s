@@ -18,8 +18,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 
 
@@ -43,6 +45,18 @@ public class App extends Application {
         GridPane paneForm = new GridPane();
         HBox paneBotoes = new HBox();
 
+        ColumnConstraints colLabel = new ColumnConstraints();
+        colLabel.setPercentWidth(30);
+
+        ColumnConstraints colTextField = new ColumnConstraints();
+        colTextField.setPercentWidth(70);
+
+        RowConstraints linha = new RowConstraints();
+        linha.setPrefHeight(50);
+
+        paneForm.getColumnConstraints().addAll(colLabel, colTextField);
+        paneForm.getRowConstraints().addAll(linha, linha, linha, linha, linha);
+
         Scene scn = new Scene(panePrincipal, 800, 600);
 
         TextField txtNome = new TextField();
@@ -50,8 +64,9 @@ public class App extends Application {
         TextField txtEmail = new TextField();
         DatePicker dtaNascimento = new DatePicker();
 
-        // Label lblNome = new Label("Nome");
-        paneForm.add( new Label("Nome:"), 0, 0);
+        Label lblNome = new Label("Nome");
+        lblNome.setStyle("-fx-background-color: 'yellow'; -fx-font-size: 25px; -fx-width: '100%'; -fx-height: '100%'; -fx-rotate: 45");
+        paneForm.add( lblNome, 0, 0);
         paneForm.add( txtNome, 1, 0);
         paneForm.add( new Label("Telefone:"), 0, 1);
         paneForm.add( txtTelefone, 1, 1);
