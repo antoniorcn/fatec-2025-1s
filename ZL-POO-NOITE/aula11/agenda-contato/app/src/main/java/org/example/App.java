@@ -3,6 +3,7 @@
  */
 package org.example;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -42,12 +44,22 @@ public class App extends Application {
 
         panePrincipal.setCenter( paneForm );
 
+        ColumnConstraints coluna1 = new ColumnConstraints();
+        coluna1.setPercentWidth(30);
+
+        ColumnConstraints coluna2 = new ColumnConstraints();
+        coluna2.setPercentWidth(70);
+
+        paneForm.getColumnConstraints().addAll( coluna1, coluna2 );
+
+
         TextField txtNome = new TextField();
         TextField txtTelefone = new TextField();
         TextField txtEmail = new TextField();
         DatePicker dtaNascimento = new DatePicker();
 
         Label lblNome = new Label("Nome:");
+        lblNome.setStyle("-fx-font-size: 20px; -fx-background-color: 'yellow'; -fx-rotate: -45; -fx-text-fill: 'red'; -fx-font-weigth: 'bold';");
         paneForm.add( lblNome, 0, 0);
         paneForm.add( txtNome, 1, 0);
         paneForm.add( new Label("Telefone: "), 0, 1);
@@ -96,7 +108,23 @@ public class App extends Application {
             lista.add( c );
             new Alert( AlertType.INFORMATION, 
                 "Contato salvo com sucesso", ButtonType.OK).show();
+            txtNome.setText("");
+            txtTelefone.setText("");
+            txtEmail.setText("");
+            dtaNascimento.setValue(LocalDate.now());
         } );
+
+        btnPesquisar.setOnAction( evento -> {
+            for (Contato c : lista) { 
+                if (c.getNome().contains( txtNome.getText() )) { 
+                    txtNome.setText( c.getNome() );
+                    txtTelefone.setText( c.getTelefone() );
+                    txtEmail.setText( c.getEmail() );
+                    dtaNascimento.setValue( c.getNascimento() );
+                    break;
+                }
+            }
+        });
 
         paneBotoes.getChildren().addAll(btnSalvar, btnPesquisar);
 
