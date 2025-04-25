@@ -3,18 +3,37 @@
  */
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+// class Gravar implements EventHandler<ActionEvent> { 
+    
+//     public void handle(ActionEvent e) { 
+//         Contato c = new Contato();
+//         c.setNome(  );
+
+//     }
+// }
+
 public class App extends Application {
+
+    private List<Contato> lista = new ArrayList<>();
 
     public void start(Stage stage) { 
         BorderPane panePrincipal = new BorderPane();
@@ -42,6 +61,42 @@ public class App extends Application {
 
         Button btnSalvar = new Button("Salvar");
         Button btnPesquisar = new Button("Pesquisar");
+
+        // EventHandler<ActionEvent> gravar = new EventHandler<>(){
+        //     public void handle( ActionEvent e ) { 
+        //         Contato c = new Contato();
+        //         c.setNome( txtNome.getText() );
+        //         c.setTelefone( txtTelefone.getText() );
+        //         c.setEmail( txtEmail.getText() );
+        //         c.setNascimento( dtaNascimento.getValue() );
+        //     }
+        // };
+        // btnSalvar.addEventFilter(ActionEvent.ANY, gravar);
+
+        // EventHandler<ActionEvent> gravar = ( ActionEvent evento ) -> {
+        //     Contato c = new Contato();
+        //     ...
+        // };
+
+        // btnSalvar.addEventFilter(ActionEvent.ANY, 
+        //         (ActionEvent evento) -> {});
+
+        // btnSalvar.addEventFilter(ActionEvent.ANY, (evento) -> {});
+
+        // btnSalvar.addEventFilter(ActionEvent.ANY, 
+        //     evento -> System.out.println("Gravando....")
+        // );
+
+        btnSalvar.setOnAction( evento -> {
+            Contato c = new Contato();
+            c.setNome( txtNome.getText() );
+            c.setTelefone( txtTelefone.getText() );
+            c.setEmail( txtEmail.getText() );
+            c.setNascimento( dtaNascimento.getValue() );
+            lista.add( c );
+            new Alert( AlertType.INFORMATION, 
+                "Contato salvo com sucesso", ButtonType.OK).show();
+        } );
 
         paneBotoes.getChildren().addAll(btnSalvar, btnPesquisar);
 
