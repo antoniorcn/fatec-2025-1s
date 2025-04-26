@@ -52,7 +52,6 @@ public class App extends Application {
 
         paneForm.getColumnConstraints().addAll( coluna1, coluna2 );
 
-
         TextField txtNome = new TextField();
         TextField txtTelefone = new TextField();
         TextField txtEmail = new TextField();
