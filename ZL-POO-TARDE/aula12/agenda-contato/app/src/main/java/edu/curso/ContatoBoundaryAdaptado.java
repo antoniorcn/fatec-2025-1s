@@ -25,28 +25,18 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 
-public class ContatoBoundary extends Application {
+public class ContatoBoundaryAdaptado extends Application {
 
-    private ContatoControl control = new ContatoControl();
+    private ContatoControlAdaptado control = new ContatoControlAdaptado();
     private TextField txtNome = new TextField();
     private TextField txtTelefone = new TextField();
     private TextField txtEmail = new TextField();
     private DatePicker dtaNascimento = new DatePicker();
 
-    public void bindings() { 
-        Bindings.bindBidirectional(control.nomeProperty(), txtNome.textProperty());
-        Bindings.bindBidirectional(control.telefoneProperty(), txtTelefone.textProperty());
-        Bindings.bindBidirectional(control.emailProperty(), txtEmail.textProperty());
-        Bindings.bindBidirectional(control.nascimentoProperty(), dtaNascimento.valueProperty());
-    }
-
     public void start(Stage stage) { 
         BorderPane panePrincipal = new BorderPane();
         GridPane paneForm = new GridPane();
         HBox paneBotoes = new HBox();
-
-        // Faz as ligações entre propriedades do Control
-        bindings();
 
         ColumnConstraints colLabel = new ColumnConstraints();
         colLabel.setPercentWidth(30);
@@ -76,7 +66,8 @@ public class ContatoBoundary extends Application {
         Button btnSalvar = new Button("Salvar");
 
         btnSalvar.setOnAction( evento -> {
-            control.cadastrar();
+            Contato c1 = telaParaContato();
+            control.cadastrar( c1 );
             new Alert(AlertType.INFORMATION, 
                 "Contato gravado com sucesso", 
                             ButtonType.OK).show();
@@ -85,7 +76,10 @@ public class ContatoBoundary extends Application {
         Button btnPesquisar = new Button("Pesquisar");
 
         btnPesquisar.setOnAction( evento -> {
-            control.pesquisarContato();
+            Contato c = control.pesquisarContato( txtNome.getText() );
+            if (c != null) { 
+                contatoParaTela( c );
+            }
         });
 
         paneBotoes.getChildren().addAll(btnSalvar, btnPesquisar);
@@ -97,6 +91,22 @@ public class ContatoBoundary extends Application {
         stage.setScene(scn);
         stage.setTitle("Agenda de Contato");
         stage.show();
+    }
+
+    public Contato telaParaContato() { 
+        Contato c = new Contato();
+        c.setNome( txtNome.getText() );
+        c.setTelefone( txtTelefone.getText() );
+        c.setEmail( txtEmail.getText() );
+        c.setNascimento( dtaNascimento.getValue() );
+        return c;
+    }
+
+    public void contatoParaTela( Contato c ) { 
+        txtNome.setText( c.getNome() );
+        txtTelefone.setText( c.getTelefone() );
+        txtEmail.setText( c.getEmail() );
+        dtaNascimento.setValue( c.getNascimento() );
     }
 
     public static void main(String[] args) {
