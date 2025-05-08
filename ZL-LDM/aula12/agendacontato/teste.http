@@ -1,0 +1,26 @@
+POST http://localhost:8080/usuario/registrar HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "id": 0,
+    "nome" : "Antonio Neto",
+    "email": "antonio@teste.com",
+    "senha": "abc1234",
+    "perfilAcesso": "OPERADOR, ADMIN"
+}
+
+###
+
+POST http://localhost:8080/usuario/logar HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "email": "antonio@teste.com",
+    "senha": "abc1234"
+}
+
+
+###
+
+GET http://localhost:8080/contato HTTP/1.1
+Authorization: Basic YW50b25pb0B0ZXN0ZS5jb206YWJjMTIzNA==
