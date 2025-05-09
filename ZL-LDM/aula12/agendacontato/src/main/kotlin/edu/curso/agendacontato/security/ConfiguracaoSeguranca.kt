@@ -33,4 +33,12 @@ class ConfiguracaoSeguranca {
         private val logger: Logger = LoggerFactory.getLogger(ConfiguracaoSeguranca::class.java)
     }
 
+    @Bean
+public AuthenticationProvider authenticationProvider() {
+    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+    authProvider.setUserDetailsService(myUserDetailsService);
+    authProvider.setPasswordEncoder(passwordEncoder());
+    return authProvider;
+}
+
 }
