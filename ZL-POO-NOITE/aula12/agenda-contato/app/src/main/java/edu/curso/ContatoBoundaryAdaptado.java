@@ -6,7 +6,6 @@ package edu.curso;
 import java.time.LocalDate;
 
 import javafx.application.Application;
-import javafx.beans.binding.Bindings;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -21,24 +20,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class ContatoBoundary extends Application {
+public class ContatoBoundaryAdaptado extends Application {
     private TextField txtNome = new TextField();
     private TextField txtTelefone = new TextField();
     private TextField txtEmail = new TextField();
     private DatePicker dtaNascimento = new DatePicker();
 
-    private ContatoControl control = new ContatoControl();
-
-    public void bindings() { 
-        Bindings.bindBidirectional(txtNome.textProperty(), 
-                                        control.nomeProperty());
-        Bindings.bindBidirectional(txtTelefone.textProperty(), 
-                                        control.telefoneProperty());
-        Bindings.bindBidirectional(txtEmail.textProperty(), 
-                                        control.emailProperty());
-        Bindings.bindBidirectional(dtaNascimento.valueProperty(), 
-                                        control.nascimentoProperty());
-    }
+    private ContatoControlAdaptado control = new ContatoControlAdaptado();
 
     public void start(Stage stage) { 
         BorderPane panePrincipal = new BorderPane();
@@ -46,8 +34,6 @@ public class ContatoBoundary extends Application {
         HBox paneBotoes = new HBox();
 
         panePrincipal.setCenter( paneForm );
-
-        bindings();
 
         ColumnConstraints coluna1 = new ColumnConstraints();
         coluna1.setPercentWidth(30);
@@ -74,14 +60,21 @@ public class ContatoBoundary extends Application {
         Button btnPesquisar = new Button("Pesquisar");
 
         btnSalvar.setOnAction( evento -> {
-            control.adicionar();
+            Contato c = telaParaContato();
+            control.adicionar(c);
             new Alert( AlertType.INFORMATION, 
                 "Contato salvo com sucesso", ButtonType.OK).show();
+            txtNome.setText("");
+            txtTelefone.setText("");
+            txtEmail.setText("");
+            dtaNascimento.setValue(LocalDate.now());
         } );
 
         btnPesquisar.setOnAction( evento -> {
-            control.pesquisarPorNome();
-         });
+            Contato c = 
+                control.pesquisarPorNome( txtNome.getText() );
+            contatoParaTela( c );
+        });
 
         paneBotoes.getChildren().addAll(btnSalvar, btnPesquisar);
 
@@ -91,7 +84,25 @@ public class ContatoBoundary extends Application {
         stage.show();
     }
 
+    public Contato telaParaContato() { 
+        Contato c = new Contato();
+        c.setNome( txtNome.getText() );
+        c.setTelefone( txtTelefone.getText() );
+        c.setEmail( txtEmail.getText() );
+        c.setNascimento( dtaNascimento.getValue() );
+        return c;
+    }
+
+    public void contatoParaTela( Contato c ) {
+        if (c != null) {
+            txtNome.setText( c.getNome() );
+            txtTelefone.setText( c.getTelefone() );
+            txtEmail.setText( c.getEmail() );
+            dtaNascimento.setValue( c.getNascimento() );
+        }
+    }
+
     public static void main(String[] args) {
-       Application.launch(ContatoBoundary.class, args);
+       Application.launch(ContatoBoundaryAdaptado.class, args);
     }
 }
