@@ -61,21 +61,16 @@ public class ContatoBoundary extends Application {
             String strNascimento = dateFormatter.format(c.getValue().getNascimento());
             return new ReadOnlyStringWrapper(strNascimento);
         });
-
         TableColumn<Contato, Void> col5 = new TableColumn<>("Ações");
-
         Callback<TableColumn<Contato, Void>, TableCell<Contato, Void>> cellFactory
                 = (tablecolumn) -> new TableCell<>() {
-
                     private Button btnApagar = new Button("Apagar");
-
                     {
                         btnApagar.setOnAction( e -> {
                             Contato c = control.listaProperty().get( getIndex() );
                             control.remover( c );
                         });
                     }
-
                     @Override
                     public void updateItem(Void item, boolean empty) {
                         if (empty) {
@@ -86,7 +81,6 @@ public class ContatoBoundary extends Application {
                     }
                 };
         col5.setCellFactory( cellFactory );
-
         tabela.getColumns().addAll( col1, col2, col3, col4, col5 );
         tabela.setItems( control.listaProperty() );
 

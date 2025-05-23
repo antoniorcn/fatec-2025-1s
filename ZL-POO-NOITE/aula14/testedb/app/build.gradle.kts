@@ -19,7 +19,8 @@ dependencies {
     // Use JUnit test framework.
     testImplementation(libs.junit)
 
-    implementation("org.mariadb.jdbc:mariadb-java-client:3.5.3")
+    // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation("com.mysql:mysql-connector-j:9.3.0")
 
     // This dependency is used by the application.
     implementation(libs.guava)
