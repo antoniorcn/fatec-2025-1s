@@ -16,6 +16,7 @@ public class ContatoControl {
     private StringProperty telefone = new SimpleStringProperty("");
     private ObjectProperty<LocalDate> nascimento = 
             new SimpleObjectProperty<>(LocalDate.now());
+    private ContatoDAO contatoDAO = new ContatoDAOImplementation();
 
     public void adicionar() {
         Contato c = new Contato();
@@ -23,26 +24,27 @@ public class ContatoControl {
         c.setTelefone( telefone.get());
         c.setEmail(email.get());
         c.setNascimento(nascimento.get());
-        lista.add( c );
+ 
+        contatoDAO.adicionar(c);
+        
         nome.set("");
         telefone.set("");
         email.set("");
         nascimento.set(LocalDate.now());
+
+        pesquisarPorNome();
     }
     
     public void pesquisarPorNome(){ 
-        for (Contato c : lista) { 
-            if (c.getNome().contains( nome.get() )) { 
-                nome.set( c.getNome() );
-                telefone.set( c.getTelefone() );
-                email.set( c.getEmail() );
-                nascimento.set( c.getNascimento() );
-            }
-        }
+        lista.clear();
+        lista.addAll(
+            contatoDAO.pesquisarPorNome( nome.get() )
+        );
     }
 
     public void apagar( Contato c ) { 
-        lista.remove( c );
+        contatoDAO.apagar( c.getId() );
+        pesquisarPorNome();
     }
 
     public void contatoParaTela( Contato c ) { 

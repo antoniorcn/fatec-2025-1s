@@ -81,6 +81,7 @@ public class ContatoBoundary extends Application {
                         @Override
                         public void updateItem(Void item, boolean empty) { 
                             super.updateItem(item, empty);
+                            btnApagar.setDisable(true);
                             if (!empty) {
                                 btnApagar.setOnAction( 
                                     act ->  {

@@ -19,6 +19,9 @@ dependencies {
     // Use JUnit test framework.
     testImplementation(libs.junit)
 
+    // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation("com.mysql:mysql-connector-j:9.3.0")
+
     // This dependency is used by the application.
     implementation(libs.guava)
 }

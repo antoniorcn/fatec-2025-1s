@@ -2,17 +2,17 @@ package edu.curso;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
 public class ContatoDAOImplementation 
                 implements ContatoDAO {
     public static final String DB_URL =
-        "jdbc:mysql://localhost:3307/poonoite";
+        "jdbc:mysql://localhost:3307/poonoite?allowMultiQueries=true";
     public static final String DB_USER = "root";
     public static final String DB_PASS = "alunofatec";
 
@@ -29,8 +29,20 @@ public class ContatoDAOImplementation
 
     @Override
     public List<Contato> pesquisarPorNome(String nome) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'pesquisarPorNome'");
+        List<Contato> lista = new ArrayList<>();
+        String sql = "SELECT * FROM contato WHERE nome LIKE ?";
+        try { 
+            PreparedStatement stm = con.prepareStatement( sql );
+            stm.setString(1, "%" + nome + "%");
+            ResultSet rs = stm.executeQuery();
+
+            while (rs.next()) { 
+                lista.add( generateContatoFromResultSet(rs) );
+            }
+        } catch(SQLException e) { 
+            e.printStackTrace();
+        }
+        return lista;
     }
 
     @Override
@@ -38,21 +50,11 @@ public class ContatoDAOImplementation
         List<Contato> lista = new ArrayList<>();
         String sql = "SELECT * FROM contato";
         try { 
-            Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery( sql );
+            PreparedStatement stm = con.prepareStatement( sql );
+            ResultSet rs = stm.executeQuery();
 
             while (rs.next()) { 
-                Contato c = new Contato();
-                c.setId(rs.getLong("id"));
-                c.setNome(rs.getString("nome"));
-                c.setTelefone(rs.getString("telefone"));
-                c.setEmail(rs.getString("email"));
-                // LocalDate                java.sql.Date
-                c.setNascimento( 
-                    rs.getDate("nascimento")
-                        .toLocalDate()
-                );
-                lista.add( c );
+                lista.add( generateContatoFromResultSet(rs) );
             }
         } catch(SQLException e) { 
             e.printStackTrace();
@@ -62,14 +64,18 @@ public class ContatoDAOImplementation
 
     @Override
     public void adicionar(Contato contato) {
-        String sql = "INSERT INTO contato (nome, telefone, email) " + 
-        "VALUES ('%s', '%s', '%s')";
-        sql = String.format(sql, contato.getNome(), 
-            contato.getTelefone(), contato.getEmail());
+        String sql = "INSERT INTO contato (nome, telefone, email, nascimento) " + 
+        "VALUES (?, ?, ?, ?)";
         System.out.println("adicionar() SQL: " + sql);
         try { 
-            Statement stm = con.createStatement();
-            stm.executeUpdate( sql );
+            PreparedStatement stm = con.prepareStatement( sql );
+            stm.setString(1, contato.getNome());
+            stm.setString(2, contato.getTelefone());
+            stm.setString(3, contato.getEmail());
+            stm.setDate(4, 
+                java.sql.Date.valueOf( contato.getNascimento() )
+            );
+            stm.executeUpdate();
         } catch (SQLException e) { 
             e.printStackTrace();
         }
@@ -77,20 +83,70 @@ public class ContatoDAOImplementation
 
     @Override
     public boolean apagar(Long id) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'apagar'");
+        String sql = "DELETE FROM contato WHERE id = ?";
+
+        System.out.println("apagar() SQL: " + sql);
+        try { 
+            PreparedStatement stm = con.prepareStatement( sql );
+            stm.setLong(1, id);
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) { 
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public boolean atualizar(Long id, Contato contato) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+        String sql = "UPDATE contato SET nome=?, telefone=?, " + 
+        "email=?, nascimento=? WHERE id=?";
+        System.out.println("atualizar() SQL: " + sql);
+        try { 
+            PreparedStatement stm = con.prepareStatement( sql );
+            stm.setString(1, contato.getNome());
+            stm.setString(2, contato.getTelefone());
+            stm.setString(3, contato.getEmail());
+            stm.setDate(4, 
+                java.sql.Date.valueOf( contato.getNascimento() )
+            );
+            stm.setLong(5, id);
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) { 
+            e.printStackTrace();
+        }    
+        return false;
     }
 
     @Override
     public Contato procurarPorId(Long id) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'procurarPorId'");
+        String sql = "SELECT * FROM contato WHERE id = ?";
+        try { 
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setLong(1, id);
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()) { 
+                return generateContatoFromResultSet(rs);
+            }
+        } catch(SQLException e) { 
+            e.printStackTrace();
+        }
+        return null;        
+    }
+
+    private Contato generateContatoFromResultSet(ResultSet rs) throws SQLException {
+        Contato c = new Contato();
+        c.setId(rs.getLong("id"));
+        c.setNome(rs.getString("nome"));
+        c.setTelefone(rs.getString("telefone"));
+        c.setEmail(rs.getString("email"));
+        c.setNascimento( 
+            rs.getDate("nascimento")
+                .toLocalDate()
+        );
+        return c;
     }
     
 }
