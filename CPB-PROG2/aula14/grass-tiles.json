@@ -1,0 +1,14 @@
+{ "columns":6,
+ "image":"grass-tiles-2-small.png",
+ "imageheight":192,
+ "imagewidth":384,
+ "margin":0,
+ "name":"Grass Tiles",
+ "spacing":0,
+ "tilecount":72,
+ "tiledversion":"1.11.2",
+ "tileheight":64,
+ "tilewidth":64,
+ "type":"tileset",
+ "version":"1.10"
+}

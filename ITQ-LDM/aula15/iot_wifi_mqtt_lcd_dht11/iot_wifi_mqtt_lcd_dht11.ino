@@ -17,6 +17,7 @@ const char* mqtt_server = "192.168.68.101";
 const char* mqtt_topic = "sensor/temp";
 const char* mqtt_clientid = "esp32_client";
 
+const int PAUSA=30;
 
 LiquidCrystal_I2C lcd(ende, 16, 2); 
 WiFiClient espClient;
@@ -124,5 +125,5 @@ void loop() {
     lcd.print("-");
   }
 
-  delay(2000);
+  delay(PAUSA * 1000);
 }
