@@ -1,0 +1,36 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0" version="27.1.4">
+  <diagram id="JKpjEDyZGlM0cc6VZ6LX" name="Página-1">
+    <mxGraphModel dx="1281" dy="616" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CemrQGtIxWlTBC2GnIyv-1" value="Backend em Python&lt;div&gt;FastAPI&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="110" width="190" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="CemrQGtIxWlTBC2GnIyv-2" value="Chatbot" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CemrQGtIxWlTBC2GnIyv-3" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CemrQGtIxWlTBC2GnIyv-4" value="Navegador WEB rodando Frontend" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="120" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="CemrQGtIxWlTBC2GnIyv-6" value="HTTP Request (POST)&lt;div&gt;Content-Type : application/json&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;{&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&quot;mensagem&quot;: &quot;Ola tudo bem ? &quot;}&lt;/span&gt;&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.001;entryY=0.211;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="CemrQGtIxWlTBC2GnIyv-4" target="CemrQGtIxWlTBC2GnIyv-1">
+          <mxGeometry x="0.0006" y="47" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="350" as="sourcePoint" />
+            <mxPoint x="440" y="300" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CemrQGtIxWlTBC2GnIyv-7" value="HTTP Response&lt;div&gt;Content-Type: application/json&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;{&quot;resposta&quot;:&amp;nbsp; &quot;Vou bem sim obrigado&quot;}&amp;nbsp;&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;exitX=0.001;exitY=0.378;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CemrQGtIxWlTBC2GnIyv-1" target="CemrQGtIxWlTBC2GnIyv-4">
+          <mxGeometry x="0.0737" y="36" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="350" as="sourcePoint" />
+            <mxPoint x="440" y="300" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

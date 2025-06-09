@@ -3,22 +3,22 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "mapa1.tmx",
     "expandedProjectPaths": [
         "."
     ],
     "file.lastUsedOpenFilter": "Todos os Ficheiros (*)",
     "fileStates": {
         "Grass Tiles.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 0.75,
             "scaleInEditor": 2
         },
         "mapa1.tmx": {
-            "scale": 1,
+            "scale": 0.33,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 362,
-                "y": 312.5
+                "x": 990.909090909091,
+                "y": 868.1818181818182
             }
         }
     },
@@ -33,11 +33,12 @@
     "map.tileWidth": 64,
     "map.width": 32,
     "openFiles": [
+        "mapa1.tmx"
     ],
     "project": "jogo-floresta.tiled-project",
     "recentFiles": [
-        "Grass Tiles.tsx",
-        "mapa1.tmx"
+        "mapa1.tmx",
+        "Grass Tiles.tsx"
     ],
     "tileset.lastUsedFilter": "Ficheiros de conjunto de tiles Tiled (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx",
