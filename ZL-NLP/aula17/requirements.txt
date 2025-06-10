@@ -1,0 +1,6 @@
+numpy
+tensorflow
+fastapi
+uvicorn
+pydantic
+unidecode
