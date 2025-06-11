@@ -1,0 +1,209 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0" version="27.1.4">
+  <diagram name="Página-1" id="81F1UbtDlpMVIuJjuEPL">
+    <mxGraphModel dx="3255" dy="1939" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-74" value="Kotlin Spring Boot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="190" y="180" width="420" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-70" value="Kotlin KMP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;" parent="1" vertex="1">
+          <mxGeometry x="-1330" y="-500" width="1490" height="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-19" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/general-9/500/laptop-128.png" parent="1" vertex="1">
+          <mxGeometry x="-410" y="480" width="440" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" parent="1" source="KUsmrb8lNCLkx_MoMA3p-1" target="KUsmrb8lNCLkx_MoMA3p-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-5" value="HTTP 3306 Protocolo especifico do banco de dados" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="KUsmrb8lNCLkx_MoMA3p-4" vertex="1" connectable="0">
+          <mxGeometry x="0.15" y="1" relative="1" as="geometry">
+            <mxPoint x="-21" y="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-1" value="Servidor Backend&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;Spring Boot Kotlin&lt;/div&gt;&lt;/div&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="230" width="250" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-2" value="Banco de dados&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;MariaDB&lt;/div&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="810" y="240" width="110" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="KUsmrb8lNCLkx_MoMA3p-10" target="KUsmrb8lNCLkx_MoMA3p-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-100" y="265" as="sourcePoint" />
+            <mxPoint x="280" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-12" value="HTTP&amp;nbsp; 8080 usando Requisição e Resposta com JSON ou XML" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="KUsmrb8lNCLkx_MoMA3p-11" vertex="1" connectable="0">
+          <mxGeometry x="0.15" y="1" relative="1" as="geometry">
+            <mxPoint x="-21" y="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-13" value="Front end Desktop" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="-260" y="610" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="KUsmrb8lNCLkx_MoMA3p-13" target="KUsmrb8lNCLkx_MoMA3p-74" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-100" y="40" as="sourcePoint" />
+            <mxPoint x="405" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-15" value="HTTP&amp;nbsp; 8080 usando Requisição e Resposta com JSON ou XML" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="KUsmrb8lNCLkx_MoMA3p-14" vertex="1" connectable="0">
+          <mxGeometry x="0.15" y="1" relative="1" as="geometry">
+            <mxPoint x="-21" y="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-22" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="-340" y="-430" width="338" height="338" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-18" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/general-9/500/iPad-128.png" parent="KUsmrb8lNCLkx_MoMA3p-22" vertex="1">
+          <mxGeometry width="338" height="338" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-10" value="Front end Mobile" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="KUsmrb8lNCLkx_MoMA3p-22" vertex="1">
+          <mxGeometry x="100" y="80" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-27" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="-1200" y="40" width="440" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-23" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/general-9/500/laptop-128.png" parent="KUsmrb8lNCLkx_MoMA3p-27" vertex="1">
+          <mxGeometry width="440" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-26" value="Navegador Web" style="rounded=0;whiteSpace=wrap;html=1;" parent="KUsmrb8lNCLkx_MoMA3p-27" vertex="1">
+          <mxGeometry x="60" y="100" width="320" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-34" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.988;entryY=0.691;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="KUsmrb8lNCLkx_MoMA3p-32" target="KUsmrb8lNCLkx_MoMA3p-48" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="290" as="sourcePoint" />
+            <mxPoint x="590" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-66" value="MQTT" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="KUsmrb8lNCLkx_MoMA3p-34" vertex="1" connectable="0">
+          <mxGeometry x="-0.4115" y="-8" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-52" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="640" y="620" width="290" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-79" value="Message Broker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;verticalAlign=top;" parent="KUsmrb8lNCLkx_MoMA3p-52" vertex="1">
+          <mxGeometry x="-50" y="-128.33333333333331" width="350" height="366.66666666666663" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-48" value="Mosquitto&lt;br&gt;&lt;div&gt;MQTT&lt;/div&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" parent="KUsmrb8lNCLkx_MoMA3p-52" vertex="1">
+          <mxGeometry x="10" y="-22" width="240" height="168.66666666666666" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-40" value="" style="group" parent="KUsmrb8lNCLkx_MoMA3p-52" vertex="1" connectable="0">
+          <mxGeometry x="120" y="102.66666666666666" width="120" height="29.333333333333332" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-35" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-40" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="29.333333333333332" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-36" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-40" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="29.333333333333332" as="sourcePoint" />
+            <mxPoint x="30" y="29.333333333333332" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-37" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-40" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" as="sourcePoint" />
+            <mxPoint x="80" y="29.333333333333332" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-38" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-40" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" as="sourcePoint" />
+            <mxPoint x="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-39" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-40" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" as="sourcePoint" />
+            <mxPoint as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-51" value="" style="shape=link;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-40" edge="1">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="40" y="22" as="sourcePoint" />
+            <mxPoint x="70" y="22" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-53" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1080" y="550" width="350" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-33" value="" style="group" parent="KUsmrb8lNCLkx_MoMA3p-53" vertex="1" connectable="0">
+          <mxGeometry width="350" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-32" value="Dispostivo IoT" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="KUsmrb8lNCLkx_MoMA3p-33" vertex="1">
+          <mxGeometry width="350" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-30" value="ESP32&amp;nbsp;" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.electrical.logic_gates.dual_inline_ic;labelNames=a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t;whiteSpace=wrap;" parent="KUsmrb8lNCLkx_MoMA3p-33" vertex="1">
+          <mxGeometry x="140" y="70" width="100" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-41" value="" style="group" parent="KUsmrb8lNCLkx_MoMA3p-53" vertex="1" connectable="0">
+          <mxGeometry x="10" y="170" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-42" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-41" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="40" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-43" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-41" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="40" as="sourcePoint" />
+            <mxPoint x="30" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-44" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-41" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" as="sourcePoint" />
+            <mxPoint x="80" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-45" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-41" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" as="sourcePoint" />
+            <mxPoint x="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-46" value="" style="endArrow=none;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-41" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" as="sourcePoint" />
+            <mxPoint as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-50" value="" style="shape=link;html=1;rounded=0;" parent="KUsmrb8lNCLkx_MoMA3p-41" edge="1">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="45" y="30" as="sourcePoint" />
+            <mxPoint x="75" y="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-64" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="KUsmrb8lNCLkx_MoMA3p-48" target="KUsmrb8lNCLkx_MoMA3p-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="727" as="sourcePoint" />
+            <mxPoint x="840" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KUsmrb8lNCLkx_MoMA3p-67" value="&lt;div&gt;Assinatura da fila&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="KUsmrb8lNCLkx_MoMA3p-64" vertex="1" connectable="0">
+          <mxGeometry x="0.1936" y="-8" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bU-AZr2Dc3cPumCjnFf8-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.029;entryY=0.072;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="KUsmrb8lNCLkx_MoMA3p-74">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-760" y="200" as="sourcePoint" />
+            <mxPoint x="200" y="210" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bU-AZr2Dc3cPumCjnFf8-3" value="HTTP&amp;nbsp; 8080 usando Requisição e Resposta com JSON ou XML" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="bU-AZr2Dc3cPumCjnFf8-2">
+          <mxGeometry x="-0.1851" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
