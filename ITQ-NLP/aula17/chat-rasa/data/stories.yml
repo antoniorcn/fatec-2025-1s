@@ -1,0 +1,57 @@
+version: "3.1"
+
+stories:
+
+  - story: fluxo_pedindo_pizza
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+      - intent: pedir_pizza
+      - action: utter_perguntar_sabor
+      - intent: informar_sabor
+        entities:
+          - sabor: mussarela
+      - action: utter_perguntar_tamanho
+      - intent: informar_tamanho
+        entities:
+          - tamanho: grande
+      - action: utter_confirmar_pedido
+      - intent: confirmacao
+      - action: acao_pedir_pizza
+
+
+# stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: acao_saudacao_forca
+#   - intent: mood_great
+#   - action: acao_listar_raiz
+
+# - story: assistir star wars
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: star_wars
+#   - action: acao_saudacao_forca
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye

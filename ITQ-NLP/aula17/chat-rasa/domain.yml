@@ -1,0 +1,112 @@
+version: "3.1"
+
+intents:
+  - saudacao
+  - pedir_pizza
+  - informar_sabor
+  - informar_tamanho
+  - confirmacao
+  - negacao
+  - despedida
+
+entities:
+  - sabor
+  - tamanho
+
+slots:
+  sabor:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: sabor
+        conditions:
+          - active_loop: null # Mapeia apenas se não houver loop ativo
+          - active_loop: pizza_form # Mapeia se o form 'pizza_form' estiver ativo
+        
+  tamanho:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tamanho
+        conditions:
+          - active_loop: null
+          - active_loop: pizza_form
+
+responses:
+  utter_saudacao: 
+    - text: "Olá bem vindo a pizzaria Fatec Itaquera, como posso te ajudar ?"
+  
+  utter_perguntar_sabor:
+    - text: "Qual sabor de pizza você deseja ?"
+
+  utter_perguntar_tamanho:
+    - text: "Qual tamanho de pizza você quer ? (pequena, media, grande)"
+
+  utter_confirmar_pedido:
+    - text: "Você está pedindo uma pizza {tamanho} de {sabor}. Confirma é isso mesmo ?"
+
+  utter_fazer_pedido:
+    - text: "Obrigado por pedir sua pizza {tamanho} de {sabor}, ela chegara em 20 minutos"
+
+  utter_cancelado:
+    - text: "Seu pedido está sendo cancelado, vamos começar novamente"
+
+  utter_despedida:
+    - text: "Ate breve"
+
+
+actions:
+  - acao_pedir_pizza
+
+
+forms:
+  pizza_form:
+    sabor:
+      - type: from_entity
+        entity: sabor
+    tamanho:
+      - type: from_entity
+        entity: tamanho
+
+session_config:
+  session_expiration_time: 60 # Tempo em minutos para a sessão expirar
+  carry_over_slots_to_new_session: true # Manter slots para novas sessões
+# intents:
+#   - greet
+#   - goodbye
+#   - affirm
+#   - deny
+#   - star_wars
+#   - mood_great
+#   - mood_unhappy
+#   - bot_challenge
+
+# responses:
+#   utter_greet:
+#   - text: "Hey! How are you?"
+
+#   utter_cheer_up:
+#   - text: "Here is something to cheer you up:"
+#     image: "https://i.imgur.com/nGF1K8f.jpg"
+
+#   utter_did_that_help:
+#   - text: "Did that help you?"
+
+#   utter_happy:
+#   - text: "Great, carry on!"
+
+#   utter_goodbye:
+#   - text: "Bye"
+
+#   utter_iamabot:
+#   - text: "I am a bot, powered by Rasa."
+
+# actions:
+#   - acao_saudacao_forca
+#   - acao_listar_raiz
+
+# session_config:
+#   session_expiration_time: 60
+#   carry_over_slots_to_new_session: true

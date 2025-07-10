@@ -1,0 +1,40 @@
+version: "3.1"
+
+rules:
+
+- rule: Ativar o formulário de pizza
+  steps:
+  - intent: pedir_pizza
+  - form: pizza_form
+  - active_loop: pizza_form
+
+- rule: Enviar confirmação de pedido quando o formulário estiver preenchido
+  condition:
+  - active_loop: pizza_form
+  steps:
+  - form: pizza_form
+  - slot_was_set:
+      - requested_slot: null # Indica que todos os slots do form foram preenchidos
+  - action: utter_confirmar_pedido # Utter com os slots preenchidos
+  - form: null # Desativa o form
+  - action: action_listen # O bot aguarda a próxima entrada do usuário
+
+# Você pode adicionar regras para lidar com interrupções ou negações dentro do form
+- rule: Desativar form se usuário negar
+  condition:
+  - active_loop: pizza_form
+  steps:
+  - intent: negacao
+  - action: utter_cancelado
+  - form: null
+  - action: action_listen
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: despedida
+  - action: utter_despedida
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
